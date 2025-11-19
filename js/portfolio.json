@@ -14,7 +14,7 @@
       },
       {
         "image": "assets/cubeProject/mld.png",
-        "description": "This Logical Data Model (MLD) translates the conceptual e-commerce model into a concrete relational database schema. It defines all tables (e.g., ARTICLE, COMMANDE), establishes primary keys (PK) and foreign keys (FK) to build relationships, and resolves all many-to-many associations into dedicated junction tables. This model is fully normalized and ready for SQL implementation."
+        "description": "This Logical Data Model (MLD) translates the conceptual e-commerce model into a concrete relational database schema. It defines all tables, establishes primary keys and foreign keys to build relationships, and resolves all many-to-many associations into dedicated junction tables. This model is fully normalized and ready for SQL implementation."
       },
       {
         "image": "assets/cubeProject/cube.png",
@@ -24,22 +24,22 @@
   },
   {
     "titre": "Data Manipulation & Analysis",
-    "cheminImage": "assets/listic.png",
+    "cheminImage": "assets/dataAnalysisProject/listic.png",
     "description": "A team project of data manipulation and analysis for LISTIC using PostgreSQL, Excel and Power BI.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
     "competences": ["PostgreSQL", "Excel", "Power BI"],
-    "lienProjet": "https://drive.google.com/file/d/1c5grXgRSlOn0C1UyPG_PjR_VRA1L5jJJ/view?usp=drive_link",
-    "texteLien": "Download project livrable",
+    "lienProjet": "https://drive.google.com/drive/folders/16KbPPACGpSO_3AX1cPEB6zS2bVnnrv1i?usp=drive_link",
+    "texteLien": "Download project deliverables",
     "infosSupplementaires": [
       {
-        "image": "assets/listic_detail_1.png",
-        "description": "Dashboard Power BI montrant les analyses de données."
+        "image": "assets/dataAnalysisProject/excel.png",
+        "description": "Excel statistical dashboard showcasing Z-score filtering for outlier detection, linear regression modeling for trend analysis, and inter-quartile segmentation of equipment usage."
       }
     ]
   },
   {
     "titre": "Stock Management Project",
-    "cheminImage": "assets/pilot.png",
+    "cheminImage": "assets/pilotProject/pilot.png",
     "description": "Led a complete stock management project for Pilot. Covered database design (MCD, MLD, PostgreSQL), UI/UX prototyping (Figma) and application development in C#.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
     "competences": ["C#", "PostgreSQL", "Figma", "Project Management"],
@@ -47,32 +47,17 @@
     "texteLien": "See project on github",
     "infosSupplementaires": [
       {
-        "image": "assets/pilot_detail_1.png",
-        "description": "Maquette Figma du design UI/UX."
-      },
-      {
-        "image": "assets/pilot_detail_2.png",
-        "description": "Extrait du schéma de la base de données (MLD)."
+        "image": "assets/pilotProject/figmaPilot.png",
+        "description": "High-fidelity prototype designed on Figma before coding. Everything was made from scratch without any template."
       }
     ]
   },
   {
     "titre": "Portfolio Designing Project",
     "cheminImage": "assets/portfolioProject/myportfolio.png",
-    "description": "Led a complete stock management project for Pilot. Covered database design (MCD, MLD, PostgreSQL), UI/UX prototyping (Figma) and application development in C#.",
-    "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
-    "competences": ["C#", "PostgreSQL", "Figma", "Project Management"],
-    "lienProjet": "https://github.com/ElvisAndr/SAE201_ANDRIANANTOANDRO_PERSONENI",
-    "texteLien": "See project on github",
-    "infosSupplementaires": [
-      {
-        "image": "assets/pilot_detail_1.png",
-        "description": "Maquette Figma du design UI/UX."
-      },
-      {
-        "image": "assets/pilot_detail_2.png",
-        "description": "Extrait du schéma de la base de données (MLD)."
-      }
-    ]
+    "description": "Design and development of a personal interactive portfolio. Focus on UI/UX, responsive animations (Carousel, Focus Mode) and clean code architecture using JavaScript.",
+    "competences": ["Web Design"],
+    "lienProjet": "https://github.com/ElvisAndr/myPortfolio.git",
+    "texteLien": "See project on github"
   }
 ]

@@ -166,27 +166,35 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="carrousel-info">
                         <h4>${projet.titre}</h4>
                         <p>${projet.description}</p>
-                        <a href="${projet.lienProjet}" target="_blank" style="color:#4da6ff; margin-top:5px; display:inline-block;">${projet.texteLien}</a>
+                        <a href="${projet.lienProjet}" target="_blank">${projet.texteLien}</a>
                     </div>
                 </div>
             `;
 
+            let nbInfoSup = 0;
             // On ajoute les infos supplémentaires comme slides
             if (projet.infosSupplementaires) {
+                nbInfoSup = 0;
                 projet.infosSupplementaires.forEach(info => {
                     slidesHTML += `
                         <div class="carrousel-slide">
                             <img src="${info.image}" class="carrousel-image" alt="Détail">
                             <div class="carrousel-info">
-                                <h4>Détail</h4>
                                 <p>${info.description}</p>
                             </div>
                         </div>
                     `;
+                    nbInfoSup++;
                 });
+                
             }
-
-            // 3. Structure complète de la carte
+            let btnNav = '';
+            if(nbInfoSup >= 1) {
+                btnNav = `
+                    <button class="btn-nav btn-prev">❮</button>
+                    <button class="btn-nav btn-next">❯</button>
+                `               
+            }
             carte.innerHTML = `
                 ${contenuPreview}
                 
@@ -196,9 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="carrousel-track">
                         ${slidesHTML}
                     </div>
+                    ${btnNav}
                     
-                    <button class="btn-nav btn-prev">❮</button>
-                    <button class="btn-nav btn-next">❯</button>
                 </div>
             `;
 
@@ -214,18 +221,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const updateSlide = () => {
                 track.style.transform = `translateX(-${currentSlide * 100}%)`;
             };
+            
+            if(btnNav != '') {
+                btnNext.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Empêche de fermer la carte
+                    currentSlide = (currentSlide + 1) % slides.length; // Boucle au début
+                    updateSlide();
+                });
+                btnPrev.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Boucle à la fin
+                    updateSlide();
+                });
+            }
 
-            btnNext.addEventListener('click', (e) => {
-                e.stopPropagation(); // Empêche de fermer la carte
-                currentSlide = (currentSlide + 1) % slides.length; // Boucle au début
-                updateSlide();
-            });
-
-            btnPrev.addEventListener('click', (e) => {
-                e.stopPropagation();
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Boucle à la fin
-                updateSlide();
-            });
 
             // --- LOGIQUE D'OUVERTURE / FERMETURE ---
             
