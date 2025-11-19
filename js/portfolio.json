@@ -1,0 +1,78 @@
+[
+  {
+    "titre": "Cube website project",
+    "cheminImage": "assets/cubeProject/cube.png",
+    "description": "A team project of a complete website inspired by the bicycle brand CUBE website using Laravel, PostgreSQL, and all modelling diagrams.",
+    "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
+    "competences": ["Laravel", "PostgreSQL", "UML", "Web Design"],
+    "lienProjet": "https://github.com/ElvisAndr/SAE201_ANDRIANANTOANDRO_PERSONENI",
+    "texteLien": "See project on github",
+    "infosSupplementaires": [
+      {
+        "image": "assets/cubeProject/mcd.png",
+        "description": "This conceptual data model (MCD) outlines the database architecture for a comprehensive e-commerce platform. It structures the complete user journey, from product browsing (using categories, stock, and characteristics) to a persistent shopping cart (PANIER) and a full order fulfillment pipeline (COMMANDE), including payment and delivery tracking."
+      },
+      {
+        "image": "assets/cubeProject/mld.png",
+        "description": "This Logical Data Model (MLD) translates the conceptual e-commerce model into a concrete relational database schema. It defines all tables (e.g., ARTICLE, COMMANDE), establishes primary keys (PK) and foreign keys (FK) to build relationships, and resolves all many-to-many associations into dedicated junction tables. This model is fully normalized and ready for SQL implementation."
+      },
+      {
+        "image": "assets/cubeProject/cube.png",
+        "description": "The final design of the website, developed using the Laravel framework. The site prioritizes a strong visual identity and intuitive ergonomics to ensure a high-quality user experience."
+      }
+    ]
+  },
+  {
+    "titre": "Data Manipulation & Analysis",
+    "cheminImage": "assets/listic.png",
+    "description": "A team project of data manipulation and analysis for LISTIC using PostgreSQL, Excel and Power BI.",
+    "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
+    "competences": ["PostgreSQL", "Excel", "Power BI"],
+    "lienProjet": "https://drive.google.com/file/d/1c5grXgRSlOn0C1UyPG_PjR_VRA1L5jJJ/view?usp=drive_link",
+    "texteLien": "Download project livrable",
+    "infosSupplementaires": [
+      {
+        "image": "assets/listic_detail_1.png",
+        "description": "Dashboard Power BI montrant les analyses de données."
+      }
+    ]
+  },
+  {
+    "titre": "Stock Management Project",
+    "cheminImage": "assets/pilot.png",
+    "description": "Led a complete stock management project for Pilot. Covered database design (MCD, MLD, PostgreSQL), UI/UX prototyping (Figma) and application development in C#.",
+    "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
+    "competences": ["C#", "PostgreSQL", "Figma", "Project Management"],
+    "lienProjet": "https://github.com/ElvisAndr/SAE201_ANDRIANANTOANDRO_PERSONENI",
+    "texteLien": "See project on github",
+    "infosSupplementaires": [
+      {
+        "image": "assets/pilot_detail_1.png",
+        "description": "Maquette Figma du design UI/UX."
+      },
+      {
+        "image": "assets/pilot_detail_2.png",
+        "description": "Extrait du schéma de la base de données (MLD)."
+      }
+    ]
+  },
+  {
+    "titre": "Portfolio Designing Project",
+    "cheminImage": "assets/portfolioProject/myportfolio.png",
+    "description": "Led a complete stock management project for Pilot. Covered database design (MCD, MLD, PostgreSQL), UI/UX prototyping (Figma) and application development in C#.",
+    "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
+    "competences": ["C#", "PostgreSQL", "Figma", "Project Management"],
+    "lienProjet": "https://github.com/ElvisAndr/SAE201_ANDRIANANTOANDRO_PERSONENI",
+    "texteLien": "See project on github",
+    "infosSupplementaires": [
+      {
+        "image": "assets/pilot_detail_1.png",
+        "description": "Maquette Figma du design UI/UX."
+      },
+      {
+        "image": "assets/pilot_detail_2.png",
+        "description": "Extrait du schéma de la base de données (MLD)."
+      }
+    ]
+  }
+]
