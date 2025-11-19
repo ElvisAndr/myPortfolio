@@ -4,7 +4,7 @@
     "cheminImage": "assets/cubeProject/cube.png",
     "description": "A team project of a complete website inspired by the bicycle brand CUBE website using Laravel, PostgreSQL, and all modelling diagrams.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
-    "competences": ["Laravel", "PostgreSQL", "UML", "Web Design"],
+    "competences": ["Laravel", "PostgreSQL", "UML", "Web Design", "Power AMC"],
     "lienProjet": "https://github.com/ElvisAndr/SAE201_ANDRIANANTOANDRO_PERSONENI",
     "texteLien": "See project on github",
     "infosSupplementaires": [
@@ -17,7 +17,7 @@
         "description": "This Logical Data Model (MLD) translates the conceptual e-commerce model into a concrete relational database schema. It defines all tables, establishes primary keys and foreign keys to build relationships, and resolves all many-to-many associations into dedicated junction tables. This model is fully normalized and ready for SQL implementation."
       },
       {
-        "image": "assets/cubeProject/cube.png",
+        "image": "assets/cubeProject/finalVisuel.png",
         "description": "The final design of the website, developed using the Laravel framework. The site prioritizes a strong visual identity and intuitive ergonomics to ensure a high-quality user experience."
       }
     ]
@@ -27,7 +27,7 @@
     "cheminImage": "assets/dataAnalysisProject/listic.png",
     "description": "A team project of data manipulation and analysis for LISTIC using PostgreSQL, Excel and Power BI.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
-    "competences": ["PostgreSQL", "Excel", "Power BI"],
+    "competences": ["PostgreSQL", "Excel", "Power BI", "Power AMC"],
     "lienProjet": "https://drive.google.com/drive/folders/16KbPPACGpSO_3AX1cPEB6zS2bVnnrv1i?usp=drive_link",
     "texteLien": "Download project deliverables",
     "infosSupplementaires": [
@@ -42,7 +42,7 @@
     "cheminImage": "assets/pilotProject/pilot.png",
     "description": "Led a complete stock management project for Pilot. Covered database design (MCD, MLD, PostgreSQL), UI/UX prototyping (Figma) and application development in C#.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
-    "competences": ["C#", "PostgreSQL", "Figma", "Project Management"],
+    "competences": ["C#", "PostgreSQL", "Figma", "Project Management", "Power AMC"],
     "lienProjet": "https://github.com/ElvisAndr/SAE201_ANDRIANANTOANDRO_PERSONENI",
     "texteLien": "See project on github",
     "infosSupplementaires": [

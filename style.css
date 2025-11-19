@@ -1,23 +1,16 @@
-/* ========================================= */
-/* 1. BASE & ZOOM 90%                        */
-/* ========================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
-    /* C'est ici que la magie opère : 
-       90% de la taille par défaut (16px) ≈ 14.4px.
-       Cela réduit globalement la taille des polices de tout le site. */
     font-size: 90%; 
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     background: #fff;
     color: #333;
@@ -27,10 +20,6 @@ body {
 ul { list-style: none; }
 a { text-decoration: none; }
 img { max-width: 100%; display: block; }
-
-/* ========================================= */
-/* 2. HEADER & NAVIGATION                    */
-/* ========================================= */
 
 #header-fixe {
     position: fixed;
@@ -61,7 +50,9 @@ img { max-width: 100%; display: block; }
     align-items: center;
 }
 
-#header-fixe .logo { color: #111; margin-right: auto; /* Ajouté pour garder le logo à gauche si besoin */ }
+#header-fixe .logo { 
+    color: #111; margin-right: auto;
+}
 
 #header-fixe nav {
     display: flex;
@@ -102,17 +93,13 @@ img { max-width: 100%; display: block; }
     color: #282828;
 }
 
-/* ========================================= */
-/* 3. SECTION ACCUEIL (HERO)                 */
-/* ========================================= */
-
 #accueil {
     height: 100vh;
     min-height: 700px;
     display: flex;
     width: 100%;
     overflow: hidden;
-    position: relative; /* Pour tsparticles */
+    position: relative;
 }
 
 .accueil-gauche {
@@ -127,7 +114,11 @@ img { max-width: 100%; display: block; }
     z-index: 2;
 }
 
-.accueil-texte { margin: auto 0; position: relative; z-index: 1; }
+.accueil-texte { 
+    margin: auto 0; 
+    position: relative; 
+    z-index: 1; 
+}
 
 .accueil-texte p {
     font-size: 1.2rem;
@@ -136,7 +127,7 @@ img { max-width: 100%; display: block; }
 }
 
 .accueil-texte h1 {
-    font-size: 3.8vw; /* Reste proportionnel à la fenêtre */
+    font-size: 3.8vw;
     font-weight: 700;
     color: #111;
     line-height: 1.1;
@@ -165,36 +156,39 @@ img { max-width: 100%; display: block; }
     color: #333;
     transition: all 0.3s ease;
 }
-.icones-sociaux a:hover { background: #ccc; color: #000; }
-.icones-sociaux a svg { width: 22px; height: 22px; fill: currentColor; }
+.icones-sociaux a:hover { 
+    background: #ccc; 
+    color: #000; 
+}
+.icones-sociaux a svg { 
+    width: 22px; 
+    height: 22px; 
+    fill: currentColor; 
+}
 
-
-/* On cible spécifiquement l'ID du bouton pour annuler le style "rond" */
 .icones-sociaux #link_download {
-    width: auto;           /* Laisse le bouton s'agrandir selon le texte */
-    height: 45px;          /* Garde la même hauteur que les autres */
-    padding: 0 20px;       /* Ajoute de l'espace à gauche et à droite */
-    border-radius: 50px;   /* Forme "pilule" arrondie */
+    width: auto;         
+    height: 45px;        
+    padding: 0 20px;   
+    border-radius: 50px;   
     
-    display: flex;         /* Aligne l'icône et le texte sur la même ligne */
-    align-items: center;   /* Centre verticalement */
+    display: flex;      
+    align-items: center;   
     justify-content: center;
-    gap: 10px;             /* Espace entre la flèche et le texte */
+    gap: 10px;        
     
-    background: #e0e0e0;   /* Même couleur de fond que les autres */
+    background: #e0e0e0;
     text-decoration: none;
 }
 
-/* Style du texte à l'intérieur */
 .icones-sociaux #link_download p {
     margin: 0;
     font-size: 0.98rem;
     font-weight: 200;
     color: #333;
-    white-space: nowrap;   /* Empêche le texte de passer à la ligne */
+    white-space: nowrap; 
 }
 
-/* Effet au survol spécifique pour ce bouton */
 .icones-sociaux #link_download:hover {
     background: #ccc;
     color: #000;
@@ -268,10 +262,6 @@ a.bouton-contact-accueil:hover {
     z-index: 1;
 }
 
-/* ========================================= */
-/* 4. SECTIONS CONTENU (Compétences, Refs)   */
-/* ========================================= */
-
 .section-contenu {
     height: auto;
     padding: 80px 0;
@@ -291,6 +281,15 @@ a.bouton-contact-accueil:hover {
     line-height: 1.7;
     position: relative;
     z-index: 10;
+}
+
+.conteneur-texte .colonne-reference {
+    transition: all 0.5s ease;
+}
+
+.conteneur-texte .colonne-reference:hover {
+    cursor: default;
+    transform: translateY(5px);
 }
 
 #conteneur_projet { max-width: 90vw; }
@@ -369,10 +368,6 @@ a.bouton-contact-accueil:hover {
 }
 .colonne-reference a:hover { color: rgb(118, 116, 116); }
 
-/* ========================================= */
-/* 5. PORTFOLIO (TA VERSION STABLE)          */
-/* ========================================= */
-
 #portfolio { background: #f0f0f0; }
 
 .conteneur-filtres {
@@ -387,7 +382,6 @@ a.bouton-contact-accueil:hover {
 }
 
 .filtre-btn {
-    font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     padding: 8px 18px;
@@ -408,19 +402,15 @@ a.bouton-contact-accueil:hover {
 
 .filtre-btn:focus-visible { outline: 2px solid #333; outline-offset: 2px; }
 
-/* --- GRILLE STABLE (60/40) --- */
-
 .grille-projets {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
-    /* Responsive PC : on centre si jamais la ligne n'est pas pleine */
     justify-content: center; 
 }
 
 .carte-projet {
-    /* MATHÉMATIQUES FLEXBOX : */
     flex-basis: calc(40% - 20px); 
     flex-grow: 4; 
     height: 350px; 
@@ -437,7 +427,7 @@ a.bouton-contact-accueil:hover {
 .carte-projet:hover {
     transform: scale(1.025);
 }
-/* --- ÉTAT ACTIVE --- */
+
 .carte-projet.active {
     flex-grow: 6; 
     flex-basis: calc(50% - 20px);
@@ -446,14 +436,12 @@ a.bouton-contact-accueil:hover {
     z-index: 5;
 }
 
-/* --- ÉTAT INACTIVE --- */
 .grille-projets.has-active .carte-projet:not(.active) {
     opacity: 0.7;
     transform: scale(0.9);
     filter: grayscale(60%);
 }
 
-/* --- CONTENU DE BASE --- */
 .contenu-carte {
     background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
     padding: 20px;
@@ -516,7 +504,6 @@ a.bouton-contact-accueil:hover {
     color: #e7e7e7;
 }
 
-/* --- CARROUSEL --- */
 .carrousel-container {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -540,11 +527,20 @@ a.bouton-contact-accueil:hover {
 
 .carrousel-slide { min-width: 100%; height: 100%; position: relative; }
 
+.conteneur-carrousel-image {
+    border-radius: 20px;
+    width: 96%;
+    height: 60%;
+    overflow: hidden;
+    margin: 2% 2% 0 2%;
+}
+
 .carrousel-image {
     width: 100%;
-    height: 55%;
+    height: 100%;
     object-fit: cover;
     filter: brightness(0.8);
+    border-radius: 15px;
 }
 
 .carrousel-info {
@@ -552,20 +548,18 @@ a.bouton-contact-accueil:hover {
     height: 45%;
     padding: 20px;
     background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-    overflow-y: auto; /* Au cas où le texte est long */
+    overflow-y: auto;
 }
 
 .carrousel-info h4 { font-size: 1.2rem; color: #fff; margin: 0 0 10px 0; }
-.carrousel-info p { font-size: 0.9rem; color: #ddd; }
+.carrousel-info p { font-size: 0.9rem; color: #ddd; margin-bottom: 0;}
 .carrousel-info a {
     color:#4da6ff; 
-    margin-top:5px; 
     display:inline-block;
     transition: all 0.5s ease;
 }
 .carrousel-info a:hover { color: grey; }
 
-/* Boutons Nav */
 .btn-nav {
     position: absolute;
     top: 50%;
@@ -595,11 +589,6 @@ a.bouton-contact-accueil:hover {
 .btn-close:hover { background: #fff; color: #000; }
 
 
-/* ========================================= */
-/* 6. MEDIA QUERIES (RESPONSIVE)             */
-/* ========================================= */
-
-/* Responsive Tablettes / Petits PC (ex: 1024px) */
 @media (max-width: 1024px) {
     *{
         margin-top: 0;
@@ -607,12 +596,9 @@ a.bouton-contact-accueil:hover {
     .accueil-texte h1 { font-size: 3.2rem; }
 }
 
-/* Responsive Mobile / Tablettes portrait (max 900px) */
 @media (max-width: 900px) {
-    /* --- Header et Nav --- */
-    #header-fixe nav ul { display: none; /* Cache le menu classique */ }
-    
-    /* --- Accueil Hero --- */
+    #header-fixe nav ul { display: none;}
+
     #accueil {
         flex-direction: column; 
         height: auto;
@@ -648,7 +634,7 @@ a.bouton-contact-accueil:hover {
     .accueil-droite {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; /* Pousse la photo en bas */
+        justify-content: flex-end;
         padding: 30px 4% 0 4%;
     }
 
@@ -674,38 +660,40 @@ a.bouton-contact-accueil:hover {
     .navigation-accueil ul { display: none; }
 }
 
-/* Responsive Mobile Strict (max 768px) - POUR LE PORTFOLIO */
 @media (max-width: 768px) {
-    
-    /* On force les cartes à prendre toute la largeur */
+
     .carte-projet {
-        flex-basis: 100% !important; 
-        max-width: 100% !important;
+        flex-basis: 100%; 
+        max-width: 100%;
         height: 400px;
-        /* On annule le flex-grow pour éviter les décalages bizarres */
-        flex-grow: 1 !important; 
+        flex-grow: 1; 
         margin: 0;
     }
     .conteneur-filtres {
         padding: 0;
     }
-
-    /* 1. On réduit l'espace autour de la grille pour gagner de la place */
     .grille-projets {
-        padding: 2px; /* 10px haut/bas, 5px gauche/droite (presque bord à bord) */
-        gap: 20px;         /* Espace entre les cartes empilées */
+        padding: 2px;
+        gap: 20px;
     }
-
     .carte-projet.active {
-        flex-basis: 100% !important;
-        height: 500px; /* Un peu plus grand quand actif */
+        flex-basis: 100%;
+        height: 500px;
     }
 }
 
-/* Très petits écrans (max 480px) */
 @media (max-width: 480px) {
     .accueil-texte h1 { font-size: 2rem; line-height: 1.2; }
     .photo-portrait { max-height: 280px; }
     
     .conteneur-texte { max-width: 100%; padding: 0 20px; }
+}
+
+footer {
+    background-color: #000;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 80px;
+    color: #fff;
 }

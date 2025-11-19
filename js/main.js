@@ -74,10 +74,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             detectRetina: true
         }
     });
-
-    // particlesJS.load('particles-js', 'js/particles.json', function() {
-    //     console.log('callback - particles.js config loaded');
-    // });
 });
 
 }
@@ -86,9 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const grilleProjets = document.querySelector('.grille-projets');
     const conteneurFiltres = document.querySelector('.conteneur-filtres');
-    let tousLesProjets = [];
+    
+    let tousLesProjets = []; 
+    let filtresActifs = new Set(); 
 
-    // --- 1. CHARGEMENT ---
     async function chargerProjets() {
         try {
             const reponse = await fetch('js/portfolio.json');
@@ -100,12 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 2. FILTRES ---
     function genererFiltres(projets) {
         const toutesLesCompetences = new Set();
         projets.forEach(p => p.competences.forEach(c => toutesLesCompetences.add(c)));
 
-        // Bouton "Tous" par défaut
         const btnTous = document.createElement('button');
         btnTous.className = 'filtre-btn active';
         btnTous.dataset.skill = 'all';
@@ -122,32 +117,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
         conteneurFiltres.addEventListener('click', (e) => {
             if (e.target.classList.contains('filtre-btn')) {
-                conteneurFiltres.querySelector('.active')?.classList.remove('active');
-                e.target.classList.add('active');
-                filtrerProjets(e.target.dataset.skill);
+                const skillClique = e.target.dataset.skill;
+                const btnClique = e.target;
+
+                if (skillClique === 'all') {
+                    filtresActifs.clear();
+                    document.querySelectorAll('.filtre-btn').forEach(btn => btn.classList.remove('active'));
+                    btnClique.classList.add('active');
+                } 
+                else {
+                    document.querySelector('.filtre-btn[data-skill="all"]').classList.remove('active');
+
+                    if (filtresActifs.has(skillClique)) {
+                        filtresActifs.delete(skillClique);
+                        btnClique.classList.remove('active');
+                    } else {
+                        filtresActifs.add(skillClique);
+                        btnClique.classList.add('active');
+                    }
+
+                    if (filtresActifs.size === 0) {
+                        document.querySelector('.filtre-btn[data-skill="all"]').classList.add('active');
+                    }
+                }
+                
+                filtrerProjets();
             }
         });
     }
 
-    function filtrerProjets(skill) {
-        const projetsFiltres = (skill === 'all') 
-            ? tousLesProjets 
-            : tousLesProjets.filter(p => p.competences.includes(skill));
+    function filtrerProjets() {
+        let projetsFiltres;
+
+        if (filtresActifs.size === 0) {
+            projetsFiltres = tousLesProjets;
+        } else {
+            projetsFiltres = tousLesProjets.filter(projet => {
+                return Array.from(filtresActifs).every(filtre => projet.competences.includes(filtre));
+            });
+        }
+        
         genererCartesProjets(projetsFiltres);
     }
 
-    // --- 3. GÉNÉRATION DES CARTES & CARROUSEL ---
     function genererCartesProjets(projets) {
         grilleProjets.innerHTML = '';
         grilleProjets.classList.remove('has-active');
 
+        if (projets.length === 0) {
+            grilleProjets.innerHTML = "<p style='width:100%; text-align:center; color:#000; font-style:italic;'>I haven't published a project with this specific tech stack yet. But I'd love to build it for you. Feel free to send me an email !</p>";
+            return;
+        }
+
         projets.forEach(projet => {
             const carte = document.createElement('div');
             carte.className = 'carte-projet';
-            // Image de fond (visible quand inactive)
             carte.style.backgroundImage = `url('${projet.cheminImage}')`;
 
-            // 1. Contenu "Preview" (visible quand inactif)
             const contenuPreview = `
                 <div class="contenu-carte">
                     <div class="titre-projet" style="font-size:1.5rem; font-weight:bold;">${projet.titre}</div>
@@ -158,58 +184,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            // 2. Génération des slides du carrousel
-            // On commence par l'image principale du projet
             let slidesHTML = `
                 <div class="carrousel-slide">
-                    <img src="${projet.cheminImage}" class="carrousel-image" alt="${projet.titre}">
+                    <div class="conteneur-carrousel-image">
+                        <img src="${projet.cheminImage}" class="carrousel-image" alt="${projet.titre}">
+                    </div>
                     <div class="carrousel-info">
                         <h4>${projet.titre}</h4>
-                        <p>${projet.description}</p>
-                        <a href="${projet.lienProjet}" target="_blank">${projet.texteLien}</a>
+                        <p class='p-carrousel-info'>${projet.description}</p>
+                        <a href="${projet.lienProjet}" target="_blank" class="lien-projet">${projet.texteLien}</a>
                     </div>
                 </div>
             `;
 
             let nbInfoSup = 0;
-            // On ajoute les infos supplémentaires comme slides
             if (projet.infosSupplementaires) {
-                nbInfoSup = 0;
                 projet.infosSupplementaires.forEach(info => {
                     slidesHTML += `
                         <div class="carrousel-slide">
-                            <img src="${info.image}" class="carrousel-image" alt="Détail">
+                            <div class="conteneur-carrousel-image">
+                                <img src="${info.image}" class="carrousel-image" alt="Détail">
+                            </div>
                             <div class="carrousel-info">
+                                <h4>Détail</h4>
                                 <p>${info.description}</p>
                             </div>
                         </div>
                     `;
                     nbInfoSup++;
                 });
-                
             }
+
             let btnNav = '';
             if(nbInfoSup >= 1) {
                 btnNav = `
                     <button class="btn-nav btn-prev">❮</button>
                     <button class="btn-nav btn-next">❯</button>
-                `               
+                `;              
             }
+
             carte.innerHTML = `
                 ${contenuPreview}
                 
                 <div class="carrousel-container">
                     <button class="btn-close">✕</button>
-                    
                     <div class="carrousel-track">
                         ${slidesHTML}
                     </div>
                     ${btnNav}
-                    
                 </div>
             `;
 
-            // --- LOGIQUE DU CARROUSEL (INTERNE À LA CARTE) ---
             let currentSlide = 0;
             const track = carte.querySelector('.carrousel-track');
             const slides = carte.querySelectorAll('.carrousel-slide');
@@ -217,44 +242,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnPrev = carte.querySelector('.btn-prev');
             const btnClose = carte.querySelector('.btn-close');
 
-            // Fonction pour bouger le slide
             const updateSlide = () => {
                 track.style.transform = `translateX(-${currentSlide * 100}%)`;
             };
             
             if(btnNav != '') {
                 btnNext.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Empêche de fermer la carte
-                    currentSlide = (currentSlide + 1) % slides.length; // Boucle au début
+                    e.stopPropagation(); 
+                    currentSlide = (currentSlide + 1) % slides.length; 
                     updateSlide();
                 });
                 btnPrev.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Boucle à la fin
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length; 
                     updateSlide();
                 });
             }
-
-
-            // --- LOGIQUE D'OUVERTURE / FERMETURE ---
             
-            // Clic sur la croix pour fermer
             btnClose.addEventListener('click', (e) => {
                 e.stopPropagation();
                 fermerCarte();
             });
 
-            // Clic sur la carte pour ouvrir
             carte.addEventListener('click', () => {
                 if (!carte.classList.contains('active')) {
-                    // 1. Fermer les autres
                     document.querySelectorAll('.carte-projet.active').forEach(c => c.classList.remove('active'));
-                    
-                    // 2. Activer celle-ci
                     carte.classList.add('active');
                     grilleProjets.classList.add('has-active');
-                    
-                    // 3. Reset carrousel au début
                     currentSlide = 0;
                     updateSlide();
                 }
@@ -269,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
         grilleProjets.classList.remove('has-active');
     }
 
-    // Fermer si clic en dehors
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.carte-projet') && !e.target.closest('.conteneur-filtres')) {
             fermerCarte();
@@ -278,4 +291,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chargerProjets();
 });
-
