@@ -387,8 +387,9 @@ a.bouton-contact-accueil:hover {
 }
 
 h4.skill-subtitle {
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    color: #555454;
 }
 
 #references .conteneur-texte {
