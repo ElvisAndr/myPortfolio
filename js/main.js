@@ -174,9 +174,18 @@ document.addEventListener('DOMContentLoaded', () => {
             carte.className = 'carte-projet';
             carte.style.backgroundImage = `url('${projet.cheminImage}')`;
 
+            let imgStatus = `<img src="assets/ongoing.svg" alt="Done" class="icone-status">`;
+
+            if(projet.status == 'Done')
+                imgStatus = `<img src="assets/done.svg" alt="Done" class="icone-status">`;
+
             const contenuPreview = `
                 <div class="contenu-carte">
                     <div class="titre-projet" style="font-size:1.5rem; font-weight:bold;">${projet.titre}</div>
+                    <div class="date-projet">
+                    
+                    <p>${imgStatus} ${projet.date} </p>
+                    </div>
                     <div class="competences-projet" style="margin-top:10px; display:flex; gap:5px; flex-wrap:wrap;">
                         ${projet.competences.slice(0, 3).map(c => `<span class="tag-competence">${c}</span>`).join('')}
                         ${projet.competences.length > 3 ? '<span class="tag-competence">...</span>' : ''}
@@ -206,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <img src="${info.image}" class="carrousel-image" alt="Détail">
                             </div>
                             <div class="carrousel-info">
-                                <h4>Détail</h4>
                                 <p>${info.description}</p>
                             </div>
                         </div>

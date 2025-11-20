@@ -5,6 +5,8 @@
     "description": "A team project of a complete website inspired by the bicycle brand CUBE website using Laravel, PostgreSQL, and all modelling diagrams.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
     "competences": ["Laravel", "PostgreSQL", "UML", "Web Design", "Power AMC"],
+    "date": "Oct. 2025 - March 2026",
+    "status": "Ongoing",
     "lienProjet": "https://github.com/ElvisAndr/SAE201_ANDRIANANTOANDRO_PERSONENI",
     "texteLien": "See project on github",
     "infosSupplementaires": [
@@ -28,6 +30,8 @@
     "description": "A team project of data manipulation and analysis for LISTIC using PostgreSQL, Excel and Power BI.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
     "competences": ["PostgreSQL", "Excel", "Power BI", "Power AMC"],
+    "date": "March - April 2025",
+    "status": "Done",
     "lienProjet": "https://drive.google.com/drive/folders/16KbPPACGpSO_3AX1cPEB6zS2bVnnrv1i?usp=drive_link",
     "texteLien": "Download project deliverables",
     "infosSupplementaires": [
@@ -43,6 +47,8 @@
     "description": "Led a complete stock management project for Pilot. Covered database design (MCD, MLD, PostgreSQL), UI/UX prototyping (Figma) and application development in C#.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
     "competences": ["C#", "PostgreSQL", "Figma", "Project Management", "Power AMC"],
+    "date": "April - June 2025",
+    "status": "Done",
     "lienProjet": "https://github.com/ElvisAndr/SAE201_ANDRIANANTOANDRO_PERSONENI",
     "texteLien": "See project on github",
     "infosSupplementaires": [
@@ -57,6 +63,8 @@
     "cheminImage": "assets/portfolioProject/myportfolio.png",
     "description": "Design and development of a personal interactive portfolio. Focus on UI/UX, responsive animations (Carousel, Focus Mode) and clean code architecture using JavaScript.",
     "competences": ["Web Design"],
+    "date": "Oct. - Nov. 2025",
+    "status": "Done",
     "lienProjet": "https://github.com/ElvisAndr/myPortfolio.git",
     "texteLien": "See project on github"
   }
