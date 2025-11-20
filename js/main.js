@@ -9,9 +9,6 @@ window.addEventListener('scroll', function() {
     } 
 });
 
-{
-
-
 window.addEventListener('DOMContentLoaded', (event) => {
     
     tsParticles.load({
@@ -76,13 +73,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     
     const grilleProjets = document.querySelector('.grille-projets');
     const conteneurFiltres = document.querySelector('.conteneur-filtres');
     
+    let tousLesSkills = [];
     let tousLesProjets = []; 
     let filtresActifs = new Set(); 
 
@@ -174,10 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
             carte.className = 'carte-projet';
             carte.style.backgroundImage = `url('${projet.cheminImage}')`;
 
-            let imgStatus = `<img src="assets/ongoing.svg" alt="Done" class="icone-status">`;
+            let imgStatus = `<img src="assets/logo/ongoing.svg" alt="Done" class="icone-status">`;
 
             if(projet.status == 'Done')
-                imgStatus = `<img src="assets/done.svg" alt="Done" class="icone-status">`;
+                imgStatus = `<img src="assets/logo/done.svg" alt="Done" class="icone-status">`;
 
             const contenuPreview = `
                 <div class="contenu-carte">
@@ -296,6 +292,58 @@ document.addEventListener('DOMContentLoaded', () => {
             fermerCarte();
         }
     });
+
+
+    function generateSkills(skillsData) {
+        const container = document.querySelector('.colonne-competences-techniques');
+        const mainTitle = document.createElement('h3');
+        mainTitle.textContent = 'Technical Skills';
+
+        container.innerHTML = '';
+        container.appendChild(mainTitle);
+        const createSection = (categoryTitle, filterType) => {
+            const filteredSkills = skillsData.filter(item => item.type === filterType);
+            
+            if (filteredSkills.length === 0) return;
+
+            const subTitle = document.createElement('h4');
+            subTitle.textContent = categoryTitle;
+            subTitle.classList.add('skill-subtitle');
+            container.appendChild(subTitle);
+            const ul = document.createElement('ul');
+            ul.className = 'skill-list';
+
+            filteredSkills.forEach(item => {
+                const li = document.createElement('li');
+                const iconContainer = document.createElement('span');
+                const spanText = document.createElement('span');
+
+                iconContainer.className = 'skill-icon';
+                iconContainer.innerHTML = item.svg; 
+                spanText.textContent = item.skill;
+
+                li.appendChild(iconContainer);
+                li.appendChild(spanText);
+                ul.appendChild(li);
+            });
+            container.appendChild(ul);
+        };
+        
+        createSection("Programming Languages", "Programming Language");
+        createSection("Software & Tools", "Software");
+    }
+
+    async function chargerSkills() {
+        try {
+            const reponse = await fetch('js/skills.json');
+            const tousLesSkills = await reponse.json();
+            generateSkills(tousLesSkills);
+        } catch (erreur) {
+            console.error('Erreur lors du chargement des skills:', erreur);
+        }
+    }
+
+    chargerSkills();
 
     chargerProjets();
 });
