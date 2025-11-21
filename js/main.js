@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btnTous = document.createElement('button');
         btnTous.className = 'filtre-btn active';
         btnTous.dataset.skill = 'all';
-        btnTous.textContent = 'Tous';
+        btnTous.textContent = 'All';
         conteneurFiltres.appendChild(btnTous);
 
         toutesLesCompetences.forEach(skill => {

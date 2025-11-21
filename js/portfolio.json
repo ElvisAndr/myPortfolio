@@ -55,6 +55,30 @@
       {
         "image": "assets/pilotProject/figmaPilot.png",
         "description": "High-fidelity prototype designed on Figma before coding. Everything was made from scratch without any template."
+      },
+      {
+        "image": "assets/pilotProject/pilotProjectManagement.png",
+        "description": "This project focuses on planning and coordinating the full production process of a Pilot pen, from product data verification to final manufacturing. The Gantt chart outlines the entire workflow and its dependencies, divided into two main phases: Lot A (upstream planning) and Lot B (production execution)."
+      },
+      {
+        "image": "assets/pilotProject/accueil.png",
+        "description": "The main dashboard displaying the full product catalog with advanced filtering options (category, type, color) and real-time stock levels."
+      },
+      {
+        "image": "assets/pilotProject/selectionRevendeur.png",
+        "description": "An interface allowing users to search for and select an existing retailer from the database or create a new one."
+      },
+      {
+        "image": "assets/pilotProject/createCommande.png",
+        "description": "The order building screen where users can filter products, add specific items to their cart, and choose a delivery method."
+      },
+      {
+        "image": "assets/pilotProject/recapitulatifCommande.png",
+        "description": "A recap view detailing the selected retailer, delivery dates, list of ordered items, and the total price before validation."
+      },
+      {
+        "image": "assets/pilotProject/detailsProduit.png",
+        "description": "A detailed view of a specific item showing technical specifications, pricing, current stock, and a product image."
       }
     ]
   },
