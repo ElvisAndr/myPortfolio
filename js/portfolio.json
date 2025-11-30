@@ -44,7 +44,7 @@
   {
     "titre": "Stock Management Project",
     "cheminImage": "assets/pilotProject/pilot.png",
-    "description": "Led a complete stock management project for Pilot. Covered database design (MCD, MLD, PostgreSQL), UI/UX prototyping (Figma) and application development in C#.",
+    "description": "Worked within a university project team to deliver a complete stock management system for Pilot, taking the lead on database design (MCD, MLD, PostgreSQL), UI/UX prototyping in Figma, and C# application development.",
     "localisation": "University of Savoy, IUT Annecy, Annecy-Le-Vieux, France",
     "competences": ["C#", "PostgreSQL", "Figma", "Project Management", "Power AMC"],
     "date": "April - June 2025",
